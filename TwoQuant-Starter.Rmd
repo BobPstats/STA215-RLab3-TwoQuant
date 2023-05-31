@@ -1,0 +1,150 @@
+---
+title: "R Lab - Two Quantitative"
+author: "Your Name"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error=TRUE, warning=FALSE)
+install.packages("openintro")
+library(openintro)
+library(mosaic)
+```
+
+## Part 1. Google Trends in Flu Searches
+
+Do Textbook **Problem 6.62** (p. 330). The code chunk below reads the data into a dataframe named **`goog`**. The function `str()` shows the structure of it.
+
+```{r read-google}
+goog <- read.csv("GoogleTrends.csv")
+str(goog)
+```
+
+(a) Below write the code to make a scatterplot of Y = ilipct and X = flusym. See 215 R sheet - CH 6 - Scatterplot.
+
+```{r, part a}
+# scatterplot of ilipct and flusym
+
+```
+
+(b) Write a sentence that describes the relationship between **ilipct** and **flusym**.
+
+**Answer:**
+
+(c) Below write the code to find the value of the linear correlation between the variables **ilipct** and **flusym**. See 215 R sheet - CH 6 - Linear Correlation.
+
+```{r part c}
+# linear correlation between ilipct and flusym
+
+```
+
+(d) Interpret what the linear correlation tells you about the relationship between **ilipct** and **flusym**. Mention form, strength, and direction of the relationship.
+
+**Answer:**
+
+(e) Below write the code (two commands) to find the equation of the regression line between Y = **ilipct** and X = **flusym**. See 215 R sheet - CH 6 - Linear Regression. Then type the equation of the regression line into the answer below.
+
+```{r, part e}
+# equation of the regression line between ilipct and flusym
+
+```
+
+**Answer:** y-hat =
+
+(f) Write a complete sentence, interpreting what the slope of the regression line tells you about the relationship between **ilipct** and **flusym**.
+
+**Answer:**
+
+(g) The week of January 1, 2006 the scaled frequency of Google searches for "flusymptoms" was 43. Find the predicted percentage of outpatient visits for flu-like symptoms.
+
+**Answer:**
+
+(h) The actual percentage of visits for flu-like symptoms the week of January 1, 2006 was 2.298%. Find the residual.
+
+**Answer:**
+
+(i) Write a sentence that interprets the residual found in part h.
+
+**Answer:**
+
+(j) Find the value of the coefficient of determination, R-squared.
+
+**Answer:**
+
+(k) Write a sentence that interprets the value of R-squared.
+
+**Answer:**
+
+## Part 2. Bias in Course Evaluations?
+
+Do student biases affect teaching evaluations? Researchers at the University of Texas in Austin (UT Austin) collected instructor and course information on 463 courses. One variable they measured was a "beauty score" for the instructor of the course. Could it be that instructors with a higher "beauty score" also tend to have higher course evaluations? Data from this study are included in the package `openIntro`, which corresponds to an opensource introductory statistics textbook. That package was loaded in the first code chunk. The name of the dataframe is `evals`.
+
+The code below creates **`evals_small`**, a smaller version of the `evals` table with only a subset of columns. This is the dataframe you will use.
+
+```{r evals-small}
+evals_small <- evals %>%
+  select(course_id, gender, score, bty_avg)
+
+str(evals_small)
+```
+
+#### Description of variables
+
+1.  `score`: A numerical variable of the instructor's average teaching score for the course, where the average is computed from the evaluation scores from all students in that course. Teaching scores of 1 are lowest and 5 are highest. This is **Y**, the outcome variable of interest.
+2.  `bty_avg`: A numerical variable of the course instructor's average "beauty" score, where the average is computed from a separate panel of six students. Scores can range from 1 (lowest) to 10 (highest). This is **X**, the explanatory variable of interest.
+
+#### Problems / Analysis
+
+Refer to Chapter 6 of the ggformula How-To R document to help with this section (as well as notes from the video content).
+
+a.  Below, write code to get the correlation between the variables `score` and `bty_avg`. Then write a sentence that describes the relationship between the two variables.
+
+```{r evals-corr}
+
+```
+
+**ANSWER:**
+
+b.  Below, write code to make a scatterplot of the same variables. Give thought to which variable should be on which axis.
+
+```{r evals-plot}
+
+```
+
+c.  Write a sentence explaining why would it not be very fruitful to perform linear regression analysis on these variables.
+
+**ANSWER:**
+
+## Part 3. Beer and Blood Alcohol Content
+
+It is commonly believed that gender, weight, drinking habits, and many other factors play a large role in one's blood alcohol content (BAC) after consumption of alcohol. What about simply using the number of drinks consumed to predict BAC? We'll examine data from sixteen student volunteers at Ohio State University (OSU) who each drank a randomly assigned number of cans of beer. These students were evenly divided between men and women, and they differed in weight and drinking habits. Thirty minutes later, a police officer measured their blood alcohol content (BAC) in grams of alcohol per deciliter of blood.
+
+The data frame to be used is named **`bac`** (included in the openIntro package). The variables response variable is also named **`bac`** and the explanatory variable is **`beers`**.
+
+(a) Below, write code to create a scatterplot of these variables. Then write a sentence describing the relationship between **bac** and **beers**.
+
+```{r beer-scatter}
+
+```
+
+**ANSWER:**
+
+(b) Below, write code to find the equation of the regression line. Then type the equation of the regression line below.
+
+```{r beer-SLR}
+
+```
+
+**ANSWER:**
+
+(c) Write a complete sentence, interpreting the value of the slope in the context of the problem.
+
+**ANSWER:**
+
+(d) Write a sentence interpreting the value of r-squared in context.
+
+**ANSWER:**
+
+(e) Provide an example of extrapolation form this analysis. Why is it extrapolation?
+
+**ANSWER:**
